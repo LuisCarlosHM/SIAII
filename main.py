@@ -8,7 +8,7 @@ def create_partitions(dataset, train_percentage, num_partitions, filename):
         # Shuffle the dataset
         shuffled_dataset = dataset.sample(frac=1, random_state=i)
         
-        # Calculate the number of samples for training and test data
+
         num_samples = len(shuffled_dataset)
         num_train_samples = int(train_percentage * num_samples)
         num_test_samples = num_samples - num_train_samples
@@ -49,10 +49,10 @@ def main():
     # Load the dataset
     dataset = pd.read_csv('spheres1d10.csv')
 
-    # Set the percentage of training and test data
+  
     train_percentage = 0.8
 
-    # Set the number of partitions
+
     num_partitions = 5
 
     filename = 'spheres1d10'
@@ -87,12 +87,11 @@ def main():
         print(f'Accuracy for partition {i+1}: {accuracy}')  
         plot_dataset(dataset, train_data, test_data, filename)
 
-    # Load the perturbed dataset
+
     perturbed_dataset_10 = pd.read_csv('spheres2d10.csv')
     perturbed_dataset_50 = pd.read_csv('spheres2d50.csv')
     perturbed_dataset_70 = pd.read_csv('spheres2d70.csv')
 
-    # Change the label value to 1 if the inputs are -1, 1 and -1
 
     # perturbed_dataset_10.loc[(perturbed_dataset_10.iloc[:, 0] == -1) & (perturbed_dataset_10.iloc[:, 1] == 1) & (perturbed_dataset_10.iloc[:, 2] == -1), 3] = 1
 
